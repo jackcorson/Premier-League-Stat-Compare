@@ -12,6 +12,6 @@ Requirements:
 -ChromeDriver
 
 Installations:
--To install python libraries, run: pip install beautifulsoup4 selenium matplotlib numpy
+-To install python libraries, run: pip install beautifulsoup4 selenium matplotlib numpy.
 -To install the ChromeDriver, refer to https://chromedriver.chromium.org/downloads and follow instructions for proper installation.
 
