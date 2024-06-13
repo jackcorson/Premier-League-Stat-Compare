@@ -117,7 +117,6 @@ while True:
         else:
             break
             
-
     #Extract player id from playerlink.
     id = playerlink[30:(len(playerlink) - len(playername) - 1)]
     id2 = playerlink2[30:(len(playerlink2) - len(playername2) - 1)]
