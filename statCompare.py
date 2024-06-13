@@ -11,7 +11,7 @@ def loadWithSelenium(url): #Open url with Selenium.
     while True:
         try:
             driver = webdriver.Chrome()
-            driver.set_page_load_timeout(3)
+            driver.set_page_load_timeout(5)
             try:
                 driver.get(url)
             except TimeoutException:
@@ -134,11 +134,24 @@ while True:
     statsList = getStats(scoutlink)
     statsList2 = getStats(scoutlink2)
 
-    #Plot the graph.
-    plot(statsList, statsList2, playername, playername2)
-    again = str(input('Would you like to look up more player statistics? (yes/no) --> '))
-    if again.lower() == 'yes':
-        continue
+    #Plot the graph and catch errors plotting.
+    work = True
+    try:
+        plot(statsList, statsList2, playername, playername2)
+    except:
+        work = False
+        pass
+
+    if work == True:
+        again = str(input('Would you like to look up more player statistics? (yes/no) --> '))
+        if again.lower() == 'yes':
+            continue
+        else:
+            break
     else:
-        break
+        erroragain = str(input('Something went wrong when graphing, would you like to retry? (yes/no) --> '))
+        if erroragain.lower() == 'yes':
+            continue
+        else:
+            break
 
