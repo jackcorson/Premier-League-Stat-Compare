@@ -11,7 +11,7 @@ def loadWithSelenium(url): #Open url with Selenium.
     while True:
         try:
             driver = webdriver.Chrome()
-            driver.set_page_load_timeout(5)
+            driver.set_page_load_timeout(7)
             try:
                 driver.get(url)
             except TimeoutException:
@@ -20,7 +20,7 @@ def loadWithSelenium(url): #Open url with Selenium.
             driver.quit()
             return html
         except WebDriverException as e: #In case Webdriver fails.
-            print(f"ChromeDriver error: {e}")
+            print("One of the pages did not load in time")
             retry = input("Would you like to try again? (yes/no) --> ")
             if retry.lower() != 'yes':
                 return None
